@@ -1,0 +1,28 @@
+{
+  "name": "quectel",
+  "title": "Quectel OpenCPU",
+  "description": "Quectel OpenCPU development platform",
+  "homepage": "https://www.quectel.com.cn/",
+  "license": "Apache-2.0",
+  "keywords": [
+    "Short Range",
+    "Wi-Fi",
+    "BT",
+    "BLE"
+  ],
+  "version": "1.0.0",
+  "frameworks": {
+    "csdk": {
+      "title": "Quectel CSDK Framework",
+      "script": "builder/frameworks/csdk/csdk.py"
+    }
+  },
+  "packages": {
+    "framework-fc41d-csdk": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/Fatmear/framework-fc41d-csdk",
+      "version_prefix": true
+    }
+  }
+}

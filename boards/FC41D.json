@@ -1,0 +1,21 @@
+{
+    "build": {
+		"bkoffset_app": "0x10000",
+		"bkrbl_size_app": "0x108700"
+    },
+    "frameworks": [
+        "csdk"
+    ],
+    "platforms": [
+        "quectel"
+    ],
+    "name": "FC41D",
+    "upload": {
+        "maximum_ram_size": 262144,
+        "maximum_size": 2097152,
+        "require_upload_port": true,
+        "speed": 921600
+    },
+    "url": "https://www.quectel.com.cn/",
+    "vendor": "Quectel"
+}
