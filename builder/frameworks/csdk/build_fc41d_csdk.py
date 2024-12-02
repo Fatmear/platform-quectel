@@ -15,10 +15,7 @@
 import platform as plat
 import os
 from os.path import join, isdir
-import zipfile
-import tarfile
 
-import utils.trans_cmakelists as trans_cmakelists
 from platformio.platform.base import PlatformBase
 from platformio.platform.board import PlatformBoardConfig
 from SCons.Script import (
@@ -40,18 +37,18 @@ def gen_firmware_bin(source, target, env):
     shutil.copy(str(source[0]), join(ql_out_path, "fc41d_bsp_app.bin"))
     os.chdir(join(FRAMEWORK_DIR, "ql_tools", "beken_packager"))
     os.system("python ocpu_bk_packager.py fc41d_bsp_app")
-    if os.path.exists(join(env["PROJECT_BUILD_DIR"], "FC41D", "fc41d_bsp_app_uart_2M.1220.bin")):  
-        os.remove(join(env["PROJECT_BUILD_DIR"], "FC41D", "fc41d_bsp_app_uart_2M.1220.bin"))  
-    shutil.move("./fc41d_bsp_app_uart_2M.1220.bin", join(env["PROJECT_BUILD_DIR"], "FC41D"))
-    if os.path.exists(join(env["PROJECT_BUILD_DIR"], "FC41D", os.path.basename(str(target[0])))):  
-        os.remove(join(env["PROJECT_BUILD_DIR"], "FC41D", os.path.basename(str(target[0]))))  
-    shutil.move("../../ql_out/all_2M.1220.bin", join(env["PROJECT_BUILD_DIR"], "FC41D", os.path.basename(str(target[0]))))
+    if os.path.exists(join(env["PROJECT_BUILD_DIR"], board.get('name'), "fc41d_bsp_app_uart_2M.1220.bin")):  
+        os.remove(join(env["PROJECT_BUILD_DIR"], board.get('name'), "fc41d_bsp_app_uart_2M.1220.bin"))  
+    shutil.move("./fc41d_bsp_app_uart_2M.1220.bin", join(env["PROJECT_BUILD_DIR"], board.get('name')))
+    if os.path.exists(join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0])))):  
+        os.remove(join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))))  
+    shutil.move("../../ql_out/all_2M.1220.bin", join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))))
     os.chdir(last_dir)
 
 env: Environment = DefaultEnvironment()
 platform: PlatformBase = env.PioPlatform()
 board: PlatformBoardConfig = env.BoardConfig()
-FRAMEWORK_DIR = platform.get_package_dir("framework-fc41d-csdk")
+FRAMEWORK_DIR = platform.get_package_dir("framework-" + board.get('name').lower() + "-csdk")
 assert isdir(FRAMEWORK_DIR)
 
 if system == "Windows":
@@ -466,8 +463,6 @@ env.Append(
         join(FRAMEWORK_DIR, "ql_build", "prebuilds")
     ],
     LIBS=[
-        "stdc++",
-        "supc++",
         "libdriver",
         "libairkiss",
         "libbk_app", 
@@ -498,7 +493,7 @@ env.Append(
             ),
         ),
     ),
-    upload_source = join(env["PROJECT_BUILD_DIR"], "FC41D", "${PROGNAME}.bin"),
+    upload_source = join(env["PROJECT_BUILD_DIR"], board.get('name'), "${PROGNAME}.bin"),
 )
 
 libs = [

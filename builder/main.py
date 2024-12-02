@@ -49,8 +49,8 @@ else:
         firmware_bin = join("${BUILD_DIR}", "${PROGNAME}.bin")
     else:
         bsp_app_elf = env.BuildProgram()
-        bsp_app_bin = env.ElfToBin(join("$BUILD_DIR", "bsp_app"), bsp_app_elf)
-        firmware_bin = env.GenFirmBin(join("$BUILD_DIR", "${PROGNAME}.bin"), bsp_app_bin)
+        bsp_app_bin = env.ElfToBin(join("${BUILD_DIR}", "bsp_app"), bsp_app_elf)
+        firmware_bin = env.GenFirmBin(join("${BUILD_DIR}", "${PROGNAME}.bin"), bsp_app_bin)
     
 AlwaysBuild(env.Alias("nobuild", bsp_app_bin))
 AlwaysBuild(env.Alias("nobuild", firmware_bin))

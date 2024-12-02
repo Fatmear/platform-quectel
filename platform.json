@@ -23,6 +23,12 @@
       "optional": true,
       "version": "https://github.com/Fatmear/framework-fc41d-csdk",
       "version_prefix": true
+    },
+    "framework-fgm842d-csdk": {
+      "type": "framework",
+      "optional": true,
+      "version": "https://github.com/Fatmear/framework-fgm842d-csdk",
+      "version_prefix": true
     }
   }
 }
