@@ -2,7 +2,7 @@
 <img src="logo.svg" width="60%" >
 </p>
 
-中文 | [English](README.md)
+[English](README.md) | 中文
 
 # platform-quectel
 
