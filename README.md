@@ -4,7 +4,7 @@
 
 English | [中文](README_CN.md)
 
-# Platform package adapted for PlatformIO
+# OpenCPU development platform for PlatformIO
 
 Currently supported modules:
 
