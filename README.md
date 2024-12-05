@@ -4,9 +4,7 @@
 
 English | [中文](README_CN.md)
 
-# platform-quectel
-
-This project is a platform package adapted for PlatformIO by Quectel.
+# Platform package adapted for PlatformIO
 
 Currently supported modules:
 
