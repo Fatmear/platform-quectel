@@ -4,7 +4,7 @@
 
 [English](README.md) | 中文
 
-# platform-quectel
+# OpenCPU development platform for PlatformIO
 
 本项目是移远为PlatformIO适配的平台包。
 
