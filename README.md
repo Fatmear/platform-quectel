@@ -33,7 +33,7 @@ sudo usermod -aG dialout username
 reboot
 ```
 
-#### Q2:Windows compiler error: '"libxxx.a: file format not recognized; treating as linker script"`.
+#### Q2:Windows compiler error: `"libxxx.a: file format not recognized; treating as linker script"`.
 
 A2: This is because when Windows pull-down Git repository, non-Windows line breaks are automatically converted to Windows line breaks, resulting in compilation failure. To solve this problem, run the following command to pull the repository again:
 
