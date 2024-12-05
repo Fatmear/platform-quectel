@@ -15,6 +15,7 @@
 import platform as plat
 import os
 from os.path import join, isdir
+import configparser
 
 from platformio.platform.base import PlatformBase
 from platformio.platform.board import PlatformBoardConfig
@@ -23,6 +24,12 @@ from SCons.Script import (
     Environment,
     Builder
 )
+
+env: Environment = DefaultEnvironment()
+platform: PlatformBase = env.PioPlatform()
+board: PlatformBoardConfig = env.BoardConfig()
+FRAMEWORK_DIR = platform.get_package_dir("framework-" + board.get('name').lower() + "-csdk")
+assert isdir(FRAMEWORK_DIR)
 
 system = plat.system()
 
@@ -44,12 +51,20 @@ def gen_firmware_bin(source, target, env):
         os.remove(join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))))  
     shutil.move("../../ql_out/all_2M.1220.bin", join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))))
     os.chdir(last_dir)
+    if os.path.exists(join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))[:-4]+".map")):
+        os.remove(join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))[:-4]+".map"))
+    os.rename(join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))[:-4]+".elf.map"), join(env["PROJECT_BUILD_DIR"], board.get('name'), os.path.basename(str(target[0]))[:-4]+".map"))
 
-env: Environment = DefaultEnvironment()
-platform: PlatformBase = env.PioPlatform()
-board: PlatformBoardConfig = env.BoardConfig()
-FRAMEWORK_DIR = platform.get_package_dir("framework-" + board.get('name').lower() + "-csdk")
-assert isdir(FRAMEWORK_DIR)
+project_config = configparser.ConfigParser()
+project_config.read(env['PROJECT_CONFIG'])
+if project_config.has_option(project_config.sections()[0], "FIRMWARE_NAME"):
+    env.Replace(
+        PROGNAME = project_config.get(project_config.sections()[0], "FIRMWARE_NAME")
+    )
+else:
+    env.Replace(
+        PROGNAME = "FC41DAEMDR01A01_V01"
+    )
 
 if system == "Windows":
     gcc_path = join(FRAMEWORK_DIR, "ql_tools", "gcc-arm-none-eabi-5_4-2016q3-20160926-win32")

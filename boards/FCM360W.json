@@ -1,5 +1,5 @@
 {
-    "name": "FGM842D",
+    "name": "FCM360W",
     "frameworks": [
         "csdk"
     ],
@@ -7,12 +7,12 @@
         "quectel"
     ],
     "build": {
-        "mcu": "BK7238",
+        "mcu": "ECR6600F",
         "f_cpu": "160000000L"
     },
     "upload": {
-        "maximum_ram_size": 294912,
-        "maximum_size": 2097152,
+        "maximum_ram_size": 524288,
+        "maximum_size": 4194304,
         "require_upload_port": true,
         "speed": 921600
     },
