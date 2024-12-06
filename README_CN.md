@@ -4,9 +4,7 @@
 
 [English](README.md) | 中文
 
-# OpenCPU development platform for PlatformIO
-
-本项目是移远为PlatformIO适配的平台包。
+# PlatformIO OpenCPU开发平台
 
 目前支持的模组：
 
