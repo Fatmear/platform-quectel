@@ -33,6 +33,13 @@ assert isdir(FRAMEWORK_DIR)
 
 system = plat.system()
 
+def download_fw(source, target, env):
+    ret = os.system(env['UPLOADER'] + ' download ' + ' '.join(str(i) for i in env['UPLOADERFLAGS']) +" "+ str(source[0]))
+    if ret == 1:
+        return 0
+    else:
+        return 1
+
 def gen_firmware_bin(source, target, env):
     import os
     import shutil
@@ -90,7 +97,7 @@ if system == "Windows":
             "-b", "921600",
             "-i",
         ],
-        UPLOADCMD='$UPLOADER download $UPLOADERFLAGS $SOURCE',
+        UPLOADCMD = download_fw,
     )
 
     env.Replace(
