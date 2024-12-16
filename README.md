@@ -8,12 +8,12 @@ English | [中文](README_CN.md)
 
 Currently supported features:
 
-✅ Suitable for multiple modules <br>
-✅ Support CSDK development <br>
-✅ supports one-click compilation and download <br>
-❌ Arduino development is not currently supported <br>
-❌ Debugger not currently supported <br>
-❌ The PlatformIO public library is not currently supported <br>
+> ✔ Suitable for multiple modules <br>
+> ✔ Support CSDK development <br>
+> ✔ Supports one-click compilation and download <br>
+> ❌ Arduino development is not currently supported <br>
+> ❌ Debugger not currently supported <br>
+> ❌ The PlatformIO public library is not currently supported <br>
 
 | module  | RAM   | ROM | user code available RAM | user code available ROM | CSDK | Arduino | build | upload | debuger |
 | ------- | ----- | --- | ----------------------- | ----------------------- | ---- | ------- | ------- | -------- | ------- |
