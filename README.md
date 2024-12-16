@@ -6,13 +6,13 @@ English | [中文](README_CN.md)
 
 # OpenCPU development platform for PlatformIO
 
-Currently supported modules:
+Currently supported features:
 
-| module  | RAM   | ROM | CSDK | Arduino |
-| ------- | ----- | --- | ---- | ------- |
-| FC41D   | 256KB | 2M  | √    | ×       |
-| FGM842D | 288KB | 2M  | √    | ×       |
-| FCM360W | 512KB | 4M  | √    | ×       |
+| module  | RAM   | ROM | user code available RAM | user code available ROM | CSDK | Arduino | compile | download | debuger |
+| ------- | ----- | --- | ----------------------- | ----------------------- | ---- | ------- | ------- | -------- | ------- |
+| FC41D   | 256KB | 2M  | 125KB                   | 249KB                   | √    | ×       | √       | √        | ×       |
+| FGM842D | 288KB | 2M  | 126KB                   | 233KB                   | √    | ×       | √       | √        | ×       |
+| FCM360W | 512KB | 4M  | 130KB                   | 1000KB                  | √    | ×       | √       | √        | ×       |
 
 ### Install
 ------------------

@@ -138,8 +138,8 @@
                 "attention": "Reserve 1 to 10 kΩ resistance to connect the I2C port to the VBAT.",
                 "num": 1,
                 "port": {
-                    "I2C0": {
-                        "description": "I2C0",
+                    "I2C2": {
+                        "description": "I2C2",
                         "sda0": 18,
                         "scl0": 16,
                         "sda1": 12,
@@ -164,14 +164,12 @@
                 }
             },
             "ADC": {
-                "num": 6,
+                "num": 4,
                 "port": {
                     "ADC1": 12,
                     "ADC2": 13,
                     "ADC3": 5,
-                    "ADC4": 6,
-                    "ADC5": 30,
-                    "ADC6": 20
+                    "ADC4": 6
                 },
                 "resolution": "10bit",
                 "input_voltage_range": "0-3.3V"
