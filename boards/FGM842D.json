@@ -16,6 +16,328 @@
         "require_upload_port": true,
         "speed": 921600
     },
+    "information": {
+        "core": "ARM9",
+        "available_ram_size": "126KB",
+        "available_flash_size": "233KB",
+        "operating_system": "FreeRTOS",
+        "flash_map": {
+            "bootloader": {
+                "description": "bootloader",
+                "start_address": "0x000000",
+                "length": "0x11000"
+            },
+            "application": {
+                "description": "application",
+                "start_address": "0x011000",
+                "length": "0x121000"
+            },
+            "OTA": {
+                "description": "OTA",
+                "start_address": "0x132000",
+                "length": "0xAE000"
+            },
+            "RF_firmware": {
+                "description": "RF firmware",
+                "start_address": "0x1e0000",
+                "length": "0x1000"
+            },
+            "NET_info": {
+                "description": "NET info",
+                "start_address": "0x1e1000",
+                "length": "0x1000"
+            },
+            "fast_connect_para": {
+                "description": "fast connect para",
+                "start_address": "0x1e2000",
+                "length": "0x1000"
+            },
+            "SN_info": {
+                "description": "SN info",
+                "start_address": "0x1e3000",
+                "length": "0x1000"
+            },
+            "littlefs": {
+                "description": "littlefs",
+                "start_address": "0x1e4000",
+                "length": "0x10000"
+            },
+            "easyflash": {
+                "description": "easyflash",
+                "start_address": "0x1f4000",
+                "length": "0x2000"
+            },
+            "BLE_bonding_info": {
+                "description": "BLE bonding info",
+                "start_address": "0x1f6000",
+                "length": "0x1000"
+            },
+            "user_reserve": {
+                "description": "user reserve",
+                "start_address": "0x1f7000",
+                "length": "0x9000"
+            }
+        },
+        "peripheral": {
+            "UART": {
+                "num": 2,
+                "port": {
+                    "UART1": {
+                        "description": "DBG and download",
+                        "TX": 31,
+                        "RX": 30
+                    },
+                    "UART2": {
+                        "description": "UART2",
+                        "TX": 19,
+                        "RX": 20
+                    }
+                },
+                "baudrate": [
+                    "2400",
+                    "4800",
+                    "9600",
+                    "14400",
+                    "19200",
+                    "28800",
+                    "33600",
+                    "38400",
+                    "57600",
+                    "115200",
+                    "230400",
+                    "460800",
+                    "921600",
+                    "1000000",
+                    "1843200",
+                    "2000000"
+                ]
+            },
+            "SPI": {
+                "num": 1,
+                "port": {
+                    "SPI0": {
+                        "description": "SPI0",
+                        "CS": 16,
+                        "CLK": 17,
+                        "MISO": 18,
+                        "MOSI": 21
+                    }
+                },
+                "mode": {
+                    "master": {
+                        "description": "master mode",
+                        "maximum_clock": "30000000L"
+                    },
+                    "slave": {
+                        "description": "slave mode",
+                        "maximum_clock": "20000000L"
+                    }
+                }
+            },
+            "I2C": {
+                "attention": "Reserve 1 to 10 kΩ resistance to connect the I2C port to the VBAT.",
+                "num": 1,
+                "port": {
+                    "I2C0": {
+                        "description": "I2C0",
+                        "sda0": 18,
+                        "scl0": 16,
+                        "sda1": 12,
+                        "scl1": 13
+                    }
+                },
+                "mode": {
+                    "master": {
+                        "description": "master mode",
+                        "speed": [
+                            "100kbps",
+                            "400kbps"
+                        ]
+                    },
+                    "slave": {
+                        "description": "slave mode",
+                        "speed": [
+                            "100kbps",
+                            "400kbps"
+                        ]
+                    }
+                }
+            },
+            "ADC": {
+                "num": 6,
+                "port": {
+                    "ADC1": 12,
+                    "ADC2": 13,
+                    "ADC3": 5,
+                    "ADC4": 6,
+                    "ADC5": 30,
+                    "ADC6": 20
+                },
+                "resolution": "10bit",
+                "input_voltage_range": "0-3.3V"
+            },
+            "GPIO": {
+                "num": 19,
+                "map": {
+                    "GPIO14": {
+                        "pin": 17,
+                        "AF": [
+                            "GPIO14",
+                            "SPI_CLK"
+                        ]
+                    },
+                    "GPIO17": {
+                        "pin": 18,
+                        "AF": [
+                            "GPIO17",
+                            "SPI_MISO",
+                            "I2C_SDA"
+                        ]
+                    },
+                    "GPIO16": {
+                        "pin": 21,
+                        "AF": [
+                            "GPIO16",
+                            "SPI_MOSI"
+                        ]
+                    },
+                    "GPIO15": {
+                        "pin": 16,
+                        "AF": [
+                            "GPIO15",
+                            "SPI_CS",
+                            "I2C_SCL"
+                        ]
+                    },
+                    "UART2_TXD": {
+                        "pin": 19,
+                        "AF": [
+                            "GPIO0"
+                        ]
+                    },
+                    "UART2_RXD": {
+                        "pin": 20,
+                        "AF": [
+                            "GPIO1",
+                            "ADC5"
+                        ]
+                    },
+                    "GPIO23": {
+                        "pin": 26,
+                        "AF": [
+                            "GPIO23"
+                        ]
+                    },
+                    "GPIO6": {
+                        "pin": 33,
+                        "AF": [
+                            "GPIO6",
+                            "CLK13M",
+                            "PWM0",
+                            "JTAG_TCK"
+                        ]
+                    },
+                    "GPIO7": {
+                        "pin": 34,
+                        "AF": [
+                            "GPIO7",
+                            "PWM1",
+                            "JTAG_TMS"
+                        ]
+                    },
+                    "GPIO8": {
+                        "pin": 32,
+                        "AF": [
+                            "GPIO8",
+                            "PWM2",
+                            "JTAG_TDI",
+                            "CLK26M"
+                        ]
+                    },
+                    "GPIO9": {
+                        "pin": 35,
+                        "AF": [
+                            "GPIO9",
+                            "PWM3",
+                            "JTAG_TDO"
+                        ]
+                    },
+                    "GPIO21": {
+                        "pin": 22,
+                        "AF": [
+                            "GPIO21"
+                        ]
+                    },
+                    "UART1_RXD": {
+                        "pin": 30,
+                        "AF": [
+                            "GPIO10",
+                            "ADC6"
+                        ]
+                    },
+                    "UART1_TXD": {
+                        "pin": 31,
+                        "AF": [
+                            "GPIO11"
+                        ]
+                    },
+                    "GPIO22": {
+                        "pin": 23,
+                        "AF": [
+                            "GPIO22"
+                        ]
+                    },
+                    "GPIO28": {
+                        "pin": 6,
+                        "AF": [
+                            "GPIO28",
+                            "ADC4"
+                        ]
+                    },
+                    "GPIO20": {
+                        "pin": 5,
+                        "AF": [
+                            "GPIO20",
+                            "ADC3"
+                        ]
+                    },
+                    "GPIO24": {
+                        "pin": 13,
+                        "AF": [
+                            "GPIO24",
+                            "LPO_CLK",
+                            "PWM4",
+                            "I2C_SCL",
+                            "ADC2"
+                        ]
+                    },
+                    "GPIO26": {
+                        "pin": 12,
+                        "AF": [
+                            "GPIO26",
+                            "PWM5",
+                            "I2C_SDA",
+                            "ADC1"
+                        ]
+                    }
+                }
+            },
+            "PWM": {
+                "num": 6,
+                "port": {
+                    "PWM0": 33,
+                    "PWM1": 34,
+                    "PWM2": 32,
+                    "PWM3": 35,
+                    "PWM4": 13,
+                    "PWM5": 12
+                },
+                "frequency": "13000000L",
+                "duty_cycle": "0-100%"
+            }
+        }
+    },
+    "more_information": "https://short-range.quectel.com/downloads",
     "url": "https://www.quectel.com.cn/",
     "vendor": "Quectel"
 }
